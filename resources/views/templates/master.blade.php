@@ -1,8 +1,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../../css/app.css">
     @yield('meta')
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -13,6 +13,11 @@
             <li><a href="/contact">Contact</a></li>
         </ul>
     </header>
+    <!-- <style>
+    .container {
+        background-color: red;
+    }
+    </style> -->
     <div class="container">
         @yield('content')
     </div>
