@@ -7,5 +7,5 @@ use App\Http\Controllers\ArticlesController;
 
 
 Route::get('/', [IndexController::class,'index']);
-Route::get('/articles', [ArticlesController::class, 'show']);
+Route::get('/articles/{id}', [ArticlesController::class, 'show']);
 Route::get('/contact', [ContactController::class, 'show']);

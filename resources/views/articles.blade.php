@@ -9,5 +9,5 @@
 @endsection
 
 @section('content')
-<p>Articles</p>
+<h3>{{$post}}</h3>
 @endsection

@@ -13,11 +13,9 @@
             <li><a href="/contact">Contact</a></li>
         </ul>
     </header>
-    @section('sidebar')
-
     <div class="container">
         @yield('content')
-        </d iv>
+    </div>
 </body>
 
 </html>

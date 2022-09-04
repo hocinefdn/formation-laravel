@@ -10,5 +10,5 @@
 @endsection
 
 @section('content')
-<p>Accueil</p>
+<p>Accueil {{$name}}</p>
 @endsection
