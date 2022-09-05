@@ -1,5 +1,14 @@
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    list-style-type: none;
+    padding: 10px;
+}
+
 a {
     font-size: 20px;
-    color: green;
     text-decoration: none;
 }
