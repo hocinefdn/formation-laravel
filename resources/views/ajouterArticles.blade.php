@@ -9,16 +9,14 @@
 @endsection
 
 @section('content')
-<div class="articles-container">
-    @foreach($articles as $article)
-    <div class="article">
-        <a href="{{route('article.show',['id'=>$article->id])}}">
-            <h3>{{$article->title}}</h3>
-        </a>
-        <p>{{$article->content}}</p>
-    </div>
-    @endforeach
-
-
+<div>
+    <h2>Ajouter un article</h2>
+    <form action="{{route('article.addArticle')}}" method="post">
+        @csrf
+        <input type="text" name="title" placeholder="Titre">
+        <textarea name="content" cols="30" rows="10" placeholder="Contenu"></textarea>
+        <button type="submit" >Ajouter</button>
+    </form>
 </div>
+
 @endsection

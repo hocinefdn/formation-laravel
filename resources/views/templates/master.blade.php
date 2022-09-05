@@ -2,7 +2,7 @@
 
 <head>
     @yield('meta')
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css?v=').time() }}">
 </head>
 
 <body>
@@ -10,6 +10,7 @@
         <ul class="header">
             <li><a href="/">Accueil</a></li>
             <li><a href="/articles">Articles</a></li>
+            <li><a href="/ajouter-article">Ajouter un articles</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
     </header>

@@ -2,19 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use Illuminate\Http\Request;
+
 class ArticlesController extends Controller
 {
-    public function show($id){
+    public function show($id)
+    {
+        $article = Article::findOrFail($id);
+        return view("article", ["article" => $article]);
+    }
 
-            $articles=[
-                1=> "Article 1",
-                2=> "Article 2",
-                3=> "Article 3"
-            ];
+    public function showAll()
+    {
+        $articles = Article::all();
+        return view("articles", ["articles" => $articles]);
+    }
 
-            $article = $articles[$id]??"Pas d'article";
+    public function create()
+    {
+        return view("ajouterArticles");
+    }
 
-
-        return view("articles",["post"=>$article]);
+    public function addArticle(Request $request)
+    {
+        Article::create([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
     }
 }
