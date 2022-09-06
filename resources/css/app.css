@@ -9,6 +9,7 @@ body {
 .header {
     display: flex;
     flex-direction: row;
+    background-color: blanchedalmond;
 }
 
 li {
@@ -32,4 +33,15 @@ a {
 .articles-container {
     display: grid;
     grid-template-columns: auto auto;
+}
+
+/* inscription */
+.form-inscription input {
+    width: 20%;
+    height: 35px;
+    padding: 5px;
+    border: 1px gray solid;
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
