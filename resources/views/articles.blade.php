@@ -14,7 +14,5 @@
                 <p>{{ $article->content }}</p>
             </div>
         @endforeach
-
-
     </div>
 @endsection

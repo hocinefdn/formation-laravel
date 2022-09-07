@@ -20,6 +20,7 @@ class ArticleFactory extends Factory
             'title' => fake()->sentence(),
 
             'content' => fake()->paragraph(),
+            'user_id' => random_int(1, 10),
         ];
     }
 }

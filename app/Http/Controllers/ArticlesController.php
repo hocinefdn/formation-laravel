@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -11,12 +12,16 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::findOrFail($id);
-        return view("article", ["article" => $article]);
+        $userName = User::find($article->user_id)->name;
+
+
+        return view("article", ["article" => $article, "user_name" => $userName]);
     }
 
     public function showAll()
     {
         $articles = Article::all();
+
         return view("articles", ["articles" => $articles]);
     }
 
@@ -25,7 +30,7 @@ class ArticlesController extends Controller
         return view("ajouterArticles");
     }
 
-    public function addArticle(Request $request)
+    public function addArticle(Request $request, $id)
     {
         $request->validate([
             'title' => 'required|max:255|min:5|unique:articles',
@@ -33,7 +38,8 @@ class ArticlesController extends Controller
         ]);
         Article::create([
             'title' => $request->title,
-            'content' => $request->content
+            'content' => $request->content,
+            'user_id' => $id
         ]);
     }
     public function addComment(Request $request, $id)

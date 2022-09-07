@@ -6,7 +6,16 @@
 
 @section('content')
     <div class="flex flex-row">
+
         <div class="w-2/3 p-2 m-2 border border-black rounded">
+            <div class="font-bold">
+                {{ $user_name }}
+            </div>
+            <div class="text-gray-600">
+
+                Le {{ \Carbon\Carbon::parse($article->created_at)->format('d/m/Y') }}
+            </div>
+            <hr>
             <h3 class="text-xl text-blue-500 ">{{ $article->title }}</h3>
             <p>{{ $article->content }}</p>
         </div>
