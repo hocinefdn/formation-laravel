@@ -49,4 +49,9 @@ class ArticlesController extends Controller
             'article_id' => $id
         ]);
     }
+
+    public function deleteComment(Request $request, $id)
+    {
+        $deleted = Comment::where('id', $id)->delete();
+    }
 }

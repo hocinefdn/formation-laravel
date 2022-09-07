@@ -6,7 +6,6 @@
 
 @section('content')
     <div class="flex flex-row">
-
         <div class="w-2/3 p-2 m-2 border border-black rounded">
             <div class="font-bold">
                 {{ $user_name }}
@@ -23,17 +22,29 @@
             <h4 class="text-red-500 flex justify-center text-lg">
                 Commentaires
             </h4>
+            {{-- add comment --}}
             <form action="{{ route('article.addComment', ['id' => $article->id]) }}" method="POST" class="flex flex-row">
                 @csrf
                 <textarea name="comment" cols="150" rows="2" placeholder="Ajoutez votre commentaire"
                     class="p-1 m-2 border border-gray"></textarea>
                 <button type="submit" class="bg-green-500 p-2 m-4 rounded">Commenter</button>
             </form>
-
             @foreach ($article->comments as $comment)
-                <div class="bg-gray-200 p-1 m-2 border border-gray">{{ $comment->content }}</div>
+                <div class="bg-gray-200 p-1 m-2 border border-gray flex">
+                    <div class="w-11/12">
+                        {{ $comment->content }}
+                    </div>
+
+                    {{-- delete comment --}}
+                    <form action="{{ route('article.deleteComment', ['id' => $comment->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete-button text-danger">
+                            <i class="fa fa-trash text-red-500"></i>
+                        </button>
+                    </form>
+                </div>
             @endforeach
         </div>
-
     </div>
 @endsection

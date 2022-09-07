@@ -38,6 +38,7 @@ Route::post('/article/create/{id}', [ArticlesController::class, 'addArticle'])->
 Route::get('/article/{id}', [ArticlesController::class, 'show'])->name("article.show");
 
 Route::post('/article/addComment/{id}', [ArticlesController::class, 'addComment'])->name("article.addComment");
+Route::delete('/article/deleteComment/{id}', [ArticlesController::class, 'deleteComment'])->name("article.deleteComment");
 
 
 Route::get('/dashboard', function () {
