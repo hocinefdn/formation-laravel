@@ -15,28 +15,34 @@
 
 <body>
     <header>
-        <ul class="header">
+        <ul class="flex w-10/12">
             <li><a href="/">Accueil</a></li>
             <li><a href="/articles">Articles</a></li>
-            <li><a href="/ajouter-article">Ajouter un article</a></liclass=>
-        </ul>
-        @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="text-white">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="text-white">Se connecter</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="text-white">S'inscrire</a>
-                    @endif
-                @endauth
+            <li><a href="/ajouter-article">Ajouter un article</a></li>
+            <div class="flex justify-end ">
+                @if (Route::has('login'))
+                    @auth
+                        <li class="">
+                            <a href="{{ url('/dashboard') }}" class="text-white">Dashboard</a>
+                        </li>
+                    @else
+                        <li class="">
+                            <a href="{{ route('login') }}" class="text-white">Se connecter</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="">
+                                <a href="{{ route('register') }}" class="text-white">S'inscrire</a>
+                            </li>
+                        @endif
+                    @endauth
             </div>
-        @endif
+            @endif
+        </ul>
+
 
     </header>
 
-    <div class="container">
+    <div>
         @yield('content')
     </div>
 

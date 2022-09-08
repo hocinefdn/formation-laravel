@@ -873,6 +873,9 @@ select{
 .w-1\/12{
   width: 8.333333%;
 }
+.w-10\/12{
+  width: 83.333333%;
+}
 .max-w-7xl{
   max-width: 80rem;
 }
@@ -2199,6 +2202,9 @@ select{
 .w-1\/12{
   width: 8.333333%;
 }
+.w-10\/12{
+  width: 83.333333%;
+}
 .max-w-7xl{
   max-width: 80rem;
 }
@@ -2651,7 +2657,7 @@ body {
     font-family: "Nunito", sans-serif;
 }
 
-.header {
+header {
     display: flex;
     flex-direction: row;
     background-color: #ee3b2d;

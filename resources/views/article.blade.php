@@ -34,15 +34,16 @@
                     <div class="w-11/12">
                         {{ $comment->content }}
                     </div>
-
-                    {{-- delete comment --}}
-                    <form action="{{ route('article.deleteComment', ['id' => $comment->id]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="delete-button text-danger">
-                            <i class="fa fa-trash text-red-500"></i>
-                        </button>
-                    </form>
+                    @auth
+                        {{-- delete comment --}}
+                        <form action="{{ route('article.deleteComment', ['id' => $comment->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-button text-danger">
+                                <i class="fa fa-trash text-red-500"></i>
+                            </button>
+                        </form>
+                    @endauth
                 </div>
             @endforeach
         </div>

@@ -10,7 +10,7 @@ body {
     font-family: "Nunito", sans-serif;
 }
 
-.header {
+header {
     display: flex;
     flex-direction: row;
     background-color: #ee3b2d;
