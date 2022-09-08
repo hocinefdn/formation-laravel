@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ArticleCreatedEvent;
 use App\Models\Article;
 use App\Models\Comment;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -22,6 +24,7 @@ class ArticlesController extends Controller
     {
         $articles = Article::all();
 
+
         return view("articles", ["articles" => $articles]);
     }
 
@@ -33,14 +36,16 @@ class ArticlesController extends Controller
     public function addArticle(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|max:255|min:5|unique:articles',
+            'title' => 'required|max:255|min:2|unique:articles',
             'content' => 'required'
         ]);
-        Article::create([
+        $article = Article::create([
             'title' => $request->title,
             'content' => $request->content,
             'user_id' => $id
         ]);
+        // dd($article->title);
+        event(new ArticleCreatedEvent($article));
     }
     public function addComment(Request $request, $id)
     {

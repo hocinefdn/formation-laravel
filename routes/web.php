@@ -30,10 +30,12 @@ Route::get('/', function () {
 
 
 // articles
-Route::get('/articles', [ArticlesController::class, 'showAll']);
+Route::get('/articles', [ArticlesController::class, 'showAll'])->name("article.showAll");;
 Route::get('/ajouter-article', [ArticlesController::class, 'create'])->name('article.create')->middleware('auth');
 
 // CRUD article
+Route::resource("books", BookController::class);
+// Route::resource('articles', 'App\Http\Controllers\ArticlesController');
 Route::post('/article/create/{id}', [ArticlesController::class, 'addArticle'])->name('article.addArticle')->middleware('auth');
 Route::get('/article/{id}', [ArticlesController::class, 'show'])->name("article.show");
 

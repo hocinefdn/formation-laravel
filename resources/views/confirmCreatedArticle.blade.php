@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Foo</title>
+    <title>Article créé</title>
 </head>
 
 <body>
-    <h3>Test blade components</h3>
-    <x-logout class="text-gray-500" />
+    <h1>
+        Article créé avec succès
+    </h1>
 </body>
 
 </html>
